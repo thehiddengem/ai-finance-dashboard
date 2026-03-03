@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI-Powered Split Finance Dashboard
 
-## Getting Started
+A modern personal finance dashboard that tracks income, expenses, and savings for two people — with real-time aggregation and AI-generated insights.
 
-First, run the development server:
+Built as a product-style application to demonstrate data modeling, state management, visualization, and UX-focused front-end engineering.
+
+---
+
+## 🚀 Live Demo
+(Deploy link goes here after Vercel)
+
+---
+
+## ✨ Features
+
+### Split Budgeting Logic
+- Track **Income, Expenses, and Savings**
+- View totals for:
+  - Person 1
+  - Person 2
+  - Combined household
+- Automatic net calculation:
+Net = Income - Expenses - Savings
+
+
+### Interactive Visualizations
+- Donut chart spending breakdown
+- Toggle between:
+- Together
+- Person 1
+- Person 2
+- Real-time recalculation when editing values
+
+### AI Insights Panel
+- Generates a plain-English summary of spending patterns
+- Identifies largest expense categories
+- Flags high expense-to-income ratio
+
+### Excel-Style Budget Table
+- Editable numeric inputs
+- Automatic section totals
+- Income / Expense / Savings grouping
+- Real-time net calculation
+- LocalStorage persistence
+
+---
+
+## 🛠 Tech Stack
+
+- **Next.js (App Router)**
+- **React + TypeScript**
+- **TailwindCSS**
+- **Recharts**
+- LocalStorage for persistence
+
+---
+
+## 📸 Screenshots
+
+(Add screenshots here)
+
+---
+
+## 🧠 Engineering Highlights
+
+- Modeled a normalized budget structure with per-person + household aggregation
+- Implemented derived financial metrics (totals, ratios, net values)
+- Built dynamic chart filtering logic based on view selection
+- Structured UI to separate data input, analytics, and AI interpretation layers
+- Designed for extensibility (monthly tracking, export, etc.)
+
+---
+
+## 🏃 Running Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
