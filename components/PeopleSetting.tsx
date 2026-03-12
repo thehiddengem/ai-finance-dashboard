@@ -15,11 +15,9 @@ type Props = {
 export default function PeopleSettingsPanel({ onChange }: Props) {
   const [settings, setSettings] = useState<PeopleSettings>(defaultPeopleSettings());
 
-  // ✅ Draft input values so you can clear the field while typing
   const [draft1, setDraft1] = useState("");
   const [draft2, setDraft2] = useState("");
 
-  // Load once
   useEffect(() => {
     const loaded = loadPeopleSettings();
     setSettings(loaded);
@@ -45,7 +43,7 @@ export default function PeopleSettingsPanel({ onChange }: Props) {
 
   return (
     <div className="bg-white rounded-xl p-6 shadow-sm">
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-1">
         <h2 className="text-lg font-semibold">People</h2>
         <p className="text-sm text-gray-500">Rename columns anytime.</p>
       </div>
@@ -61,7 +59,7 @@ export default function PeopleSettingsPanel({ onChange }: Props) {
             onKeyDown={(e) => {
               if (e.key === "Enter") {
                 e.preventDefault();
-                (e.target as HTMLInputElement).blur(); // triggers commit
+                (e.target as HTMLInputElement).blur();
               }
             }}
             placeholder="Person 1"
@@ -92,7 +90,7 @@ export default function PeopleSettingsPanel({ onChange }: Props) {
         </div>
       </div>
 
-      <div className="mt-4 flex gap-2">
+      <div className="mt-4 flex flex-wrap gap-2">
         <button
           type="button"
           className="rounded-lg bg-gray-900 text-white px-4 py-2 text-sm font-medium hover:bg-gray-800"

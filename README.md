@@ -21,6 +21,8 @@ Built as a product-style application to demonstrate scalable data modeling, deri
   - Combined household
 - Automatic net calculation:
   - Net = Income - Expenses - Savings
+- Expense-to-income percentage indicator
+- Savings rate calculation
 
 
 ### Interactive Visualizations

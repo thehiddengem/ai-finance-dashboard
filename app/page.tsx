@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import SpendingBreakdownChart from "../components/SpendingBreakdownChart";
 import TemplateEditor from "../components/TemplateEditor";
-import PeopleSettingsPanel from "../components/PeopleSetting"
+import PeopleSettingsPanel from "../components/PeopleSetting";
 
 import { loadTemplate, saveTemplate, defaultTemplate } from "../utils/template";
 import type { TemplateRow } from "../utils/template";
@@ -19,16 +19,16 @@ function formatCurrency(amount: number) {
 }
 
 const COLORS = [
-  "#3B82F6", // blue
-  "#22C55E", // green
-  "#F59E0B", // amber
-  "#A855F7", // purple
-  "#EF4444", // red
-  "#06B6D4", // cyan
-  "#F97316", // orange
-  "#84CC16", // lime
-  "#EC4899", // pink
-  "#6366F1", // indigo
+  "#3B82F6",
+  "#22C55E",
+  "#F59E0B",
+  "#A855F7",
+  "#EF4444",
+  "#06B6D4",
+  "#F97316",
+  "#84CC16",
+  "#EC4899",
+  "#6366F1",
 ];
 
 function getCurrentMonthLabel() {
@@ -91,7 +91,6 @@ export default function Home() {
     "household"
   );
 
-  // ✅ Seed defaults on first run
   useEffect(() => {
     const loadedPeople = loadPeopleSettings();
     setPeople(loadedPeople);
@@ -127,7 +126,6 @@ export default function Home() {
   const savingsRate =
     totalIncome > 0 ? ((totalSavings / totalIncome) * 100).toFixed(1) : "0.0";
 
-  // ✅ Product KPI: % of income spent
   const expensePct = totalIncome > 0 ? (totalExpenses / totalIncome) * 100 : 0;
   const expensePctLabel = expensePct.toFixed(1);
   const expensePctTone =
@@ -163,13 +161,13 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 p-8">
+    <main className="min-h-screen bg-gray-50 p-4 sm:p-6 md:p-8">
       <h1 className="text-3xl font-semibold text-gray-900 mb-1">
         AI-Powered Split Finance Dashboard
       </h1>
       <p className="text-gray-500 text-sm">
-  Track income, expenses, and savings for two people — with AI insights.
-</p>
+        Track income, expenses, and savings for two people — with AI insights.
+      </p>
       <p className="text-gray-500 mb-6">{getCurrentMonthLabel()}</p>
 
       {/* TOP: Summary cards */}
@@ -200,26 +198,18 @@ export default function Home() {
       {/* TOP: Chart + AI */}
       <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
         <div className="bg-white rounded-xl p-6 shadow-sm lg:col-span-2">
-          <div className="flex items-start justify-between gap-4 mb-4">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
             <h2 className="text-lg font-semibold">Spending Breakdown</h2>
 
-            {/* Animated segmented control */}
-            <div className="relative inline-flex rounded-xl border border-gray-200 bg-white p-1">
-              <span
-                className={`absolute top-1 bottom-1 rounded-lg bg-gray-900 transition-all duration-200 ease-out ${
-                  chartMode === "household"
-                    ? "left-1 w-[96px]"
-                    : chartMode === "person1"
-                    ? "left-[100px] w-[88px]"
-                    : "left-[192px] w-[88px]"
-                }`}
-              />
-
+            {/* Responsive segmented control */}
+            <div className="grid grid-cols-3 gap-2 w-full sm:w-auto sm:min-w-[320px]">
               <button
                 type="button"
                 onClick={() => setChartMode("household")}
-                className={`relative z-10 px-4 py-1.5 text-sm font-medium rounded-lg transition-colors ${
-                  chartMode === "household" ? "text-white" : "text-gray-700"
+                className={`w-full flex items-center justify-center text-center px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  chartMode === "household"
+                    ? "bg-gray-900 text-white"
+                    : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
                 }`}
               >
                 Together
@@ -228,8 +218,10 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setChartMode("person1")}
-                className={`relative z-10 px-4 py-1.5 text-sm font-medium rounded-lg transition-colors ${
-                  chartMode === "person1" ? "text-white" : "text-gray-700"
+                className={`w-full flex items-center justify-center text-center px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  chartMode === "person1"
+                    ? "bg-gray-900 text-white"
+                    : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
                 }`}
               >
                 {people.person1Name}
@@ -238,8 +230,10 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setChartMode("person2")}
-                className={`relative z-10 px-4 py-1.5 text-sm font-medium rounded-lg transition-colors ${
-                  chartMode === "person2" ? "text-white" : "text-gray-700"
+                className={`w-full flex items-center justify-center text-center px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  chartMode === "person2"
+                    ? "bg-gray-900 text-white"
+                    : "bg-white border border-gray-200 text-gray-700 hover:bg-gray-50"
                 }`}
               >
                 {people.person2Name}
@@ -298,7 +292,7 @@ export default function Home() {
         <h2 className="text-lg font-semibold mb-3">Split Summary</h2>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="min-w-[520px] w-full text-sm">
             <thead>
               <tr className="text-left text-gray-500 border-b">
                 <th className="py-2 pr-3">Row</th>
