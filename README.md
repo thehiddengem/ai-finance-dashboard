@@ -6,6 +6,29 @@ Built as a product-style application to demonstrate scalable data modeling, deri
 
 ---
 
+## Problem
+
+Managing finances between two people is often done through spreadsheets or multiple budgeting apps that lack real-time insights and visualization.  
+Most tools also do not clearly separate individual vs shared financial contributions, making it difficult to understand spending distribution, savings rates, and financial health.
+
+---
+
+## Solution
+
+This dashboard provides a structured budgeting interface designed for two-person financial planning. 
+It combines real-time financial aggregation, interactive data visualization, and automated insights to make budgeting easier to understand.
+
+Users can input income, expenses, and savings for each person, instantly see totals and financial ratios, and visualize spending patterns through dynamic charts.
+
+Key goals of the solution:
+
+- Provide **clear separation of individual and shared finances**
+- Deliver **real-time financial calculations**
+- Enable **visual exploration of spending patterns**
+- Generate **plain-English insights about financial health**
+
+---
+
 ## 🚀 Live Demo
 👉 https://ai-finance-dashboard-bvcze4nae-thehiddengems-projects.vercel.app
 
